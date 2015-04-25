@@ -39,6 +39,15 @@ use Cake\Routing\Router;
  * `:action` markers.
  *
  */
+
+Router::scope(
+    '/bookmarks',
+    ['controller' => 'Bookmarks'],
+    function ($routes) {
+        $routes->connect('/tagged/*', ['action' => 'tags']);
+    }
+);
+
 Router::defaultRouteClass('Route');
 
 Router::scope('/', function ($routes) {
